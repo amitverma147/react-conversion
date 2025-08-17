@@ -1,9 +1,32 @@
+import { useABTesting } from '../hooks/useABTesting'
+
 const QuestionsContainer = ({ show, questions, topic, onMouseEnter, onMouseLeave }) => {
+  const { questionsVariant } = useABTesting()
   if (!show || !questions || questions.length === 0) {
     return (
       <div className="questions-container" id="questionsContainer">
         <div className="questions-content">
           <div className="questions-list" id="questionsList"></div>
+        </div>
+      </div>
+    )
+  }
+
+  // Single column variant
+  if (questionsVariant === 'single') {
+    return (
+      <div 
+        className={`questions-container questions-single-column ${show ? 'active' : ''}`}
+        id="questionsContainer"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div className="questions-list-single">
+          <div className="questions-single-column-content">
+            <div className="question-text-block-large">
+              {questions.join(' • ')}
+            </div>
+          </div>
         </div>
       </div>
     )

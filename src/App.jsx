@@ -6,6 +6,7 @@ import HardwareSection from './components/HardwareSection'
 import SideText from './components/SideText'
 import ThemeToggle from './components/ThemeToggle'
 import ULPanel from './components/ULPanel/ULPanel'
+import ABTestingPanel from './components/ABTestingPanel/ABTestingPanel'
 import { useHoverSystem } from './hooks/useHoverSystem'
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           onGridMouseLeave={handleHardwareGridLeave}
           showArrow={showHardwareArrow}
         />
+        <ABTestingPanel />
       </main>
     </>
   )
