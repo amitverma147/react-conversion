@@ -1,0 +1,15 @@
+import React, { useState, useEffect } from 'react';
+const baseSkills=[{name:'JavaScript',category:'Languages',id:'js'},{name:'Python',category:'Languages',id:'py'},{name:'TypeScript',category:'Languages',id:'ts'},{name:'SQL',category:'Languages',id:'sql'},{name:'React',category:'Frontend',id:'react'},{name:'HTML/CSS',category:'Frontend',id:'htmlcss'},{name:'Node.js',category:'Backend',id:'node'},{name:'REST APIs',category:'Backend',id:'rest'},{name:'Docker',category:'DevOps',id:'docker'},{name:'CI/CD',category:'DevOps',id:'cicd'}];
+export default function SkillsPanel(){
+	const [open,setOpen]=useState(false);
+	const [ratings,setRatings]=useState({});
+	const [custom,setCustom]=useState([]);
+	const [input,setInput]=useState('');
+			useEffect(()=>{const saved=localStorage.getItem('skills_panel'); if(saved){ try{ const d=JSON.parse(saved); setRatings(d.ratings||{}); setCustom(d.custom||[]);}catch{ /* ignore */ } }},[]);
+	useEffect(()=>{localStorage.setItem('skills_panel',JSON.stringify({ratings,custom}));},[ratings,custom]);
+	const skills=[...baseSkills,...custom];
+	const setValue=(id,type,val)=>setRatings(r=>({...r,[id]:{...(r[id]||{}),[type]:val}}));
+	const addCustom=()=>{const name=input.trim(); if(!name) return; if(skills.some(s=>s.name.toUpperCase()===name.toUpperCase())) return; setCustom(c=>[...c,{name,category:'CUSTOM',id:'c_'+Date.now()}]); setInput('');};
+	if(!open) return <button className="ul-trigger-btn" onClick={()=>setOpen(true)}>U/L</button>;
+	return (<div className="ul-panel ul-panel-visible" style={{display:'block'}}><div className="ul-panel-header"><h3>SKILLS ASSESSMENT</h3><button className="ul-panel-close" onClick={()=>setOpen(false)}>&times;</button></div><div className="ul-panel-content" style={{maxHeight:'60vh'}}><div className="ul-skills-grid">{skills.map(s=>(<div key={s.id} className="ul-skill-item"><div className="ul-skill-header"><span className="ul-skill-name">{s.name}</span><span className="ul-skill-category">{s.category}</span></div><div className="ul-rating-row"><span className="ul-rating-label">LEVEL:</span><div className="ul-rating-scale">{[...Array(10).keys()].map(n=><button key={n} className={`ul-rating-btn ${ratings[s.id]?.level===n?'selected':''}`} onClick={()=>setValue(s.id,'level',n)}>{n}</button>)}</div></div><div className="ul-rating-row"><span className="ul-rating-label">IMPORTANCE:</span><div className="ul-rating-scale">{[...Array(10).keys()].map(n=><button key={n} className={`ul-rating-btn ${ratings[s.id]?.importance===n?'selected':''}`} onClick={()=>setValue(s.id,'importance',n)}>{n}</button>)}</div></div></div>))}</div><div className="ul-add-skill-row" style={{marginTop:16}}><input value={input} onChange={e=>setInput(e.target.value)} placeholder="ADD CUSTOM SKILL" className="ul-skill-input" /><button className="ul-add-btn" onClick={addCustom}>ADD</button></div></div><div className="ul-panel-footer"><button className="ul-reset-btn" onClick={()=>{setRatings({});setCustom([]);localStorage.removeItem('skills_panel');}}>RESET ALL</button></div></div>);
+}

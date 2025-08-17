@@ -1,0 +1,9 @@
+/* Upload Variants Styles */
+.upload-variant {
+  position: relative;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid var(--border);
+}
+
+/* Add more upload variant styles as needed */

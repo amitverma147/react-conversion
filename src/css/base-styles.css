@@ -1,0 +1,81 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px; /* Increased base font size for better readability */
+}
+
+/* Typography */
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+/* Font Classes - All Free/Open Source Fonts with common fallbacks */
+body.font-mono {
+  font-family: "Courier New", "Consolas", "Monaco", monospace;
+}
+body.font-serif {
+  font-family: "Times New Roman", "Georgia", "Times", serif;
+}
+body.font-sans {
+  font-family: "Arial", "Helvetica", "Verdana", sans-serif;
+}
+body.font-condensed {
+  font-family: "Arial Narrow", "Trebuchet MS", sans-serif;
+}
+body.font-terminal {
+  font-family: "Courier", "Courier New", "Lucida Console", monospace;
+}
+body.font-display {
+  font-family: "Impact", "Arial Black", "Trebuchet MS", sans-serif;
+}
+
+/* Theme Variables - Key Color Combinations */
+body.theme-0 {
+  --bg: #ffffff;
+  --text: #000000;
+  --border: #f8f8f8;
+  --hover: #f8f8f8;
+  --tooltip-bg: #000000;
+  --tooltip-text: #ffffff;
+  --highlight: #0066cc;
+  --dim: #333333;
+}
+body.theme-1 {
+  --bg: #0d0d0d;
+  --text: #ffffff;
+  --border: #1a1a1a;
+  --hover: #1a1a1a;
+  --tooltip-bg: #ffffff;
+  --tooltip-text: #0d0d0d;
+  --highlight: #4a9eff;
+  --dim: #e0e0e0;
+}
+body.theme-2 {
+  --bg: #fffef7;
+  --text: #0f172a;
+  --border: #faf9f0;
+  --hover: #faf9f0;
+  --tooltip-bg: #0f172a;
+  --tooltip-text: #fffef7;
+  --highlight: #2563eb;
+  --dim: #334155;
+}
+body.theme-3 {
+  --bg: #fbf5e9;
+  --text: #2d1810;
+  --border: #f5ebda;
+  --hover: #f5ebda;
+  --tooltip-bg: #2d1810;
+  --tooltip-text: #fbf5e9;
+  --highlight: #b45309;
+  --dim: #4a2617;
+}

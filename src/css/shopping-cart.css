@@ -1,0 +1,95 @@
+/* Shopping Cart Styles */
+.shopping-cart {
+  position: fixed;
+  top: 0px;
+  right: 0;
+  width: 300px;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  height: 100vh;
+  padding: 20px;
+  font-family: monospace;
+  z-index: 1000;
+}
+
+.shopping-cart h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--text);
+  font-weight: normal;
+}
+
+.cart-items {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.cart-subtotal,
+.cart-shipping,
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.cart-checkout {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.cart-checkout:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Testing Buttons Styles */
+.testing-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.u-l-btn,
+.a-b-btn {
+  padding: 8px 16px;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.u-l-btn:hover,
+.a-b-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+body.ul-active .u-l-btn,
+body.ab-active .a-b-btn {
+  background: var(--text);
+  color: var(--bg);
+}

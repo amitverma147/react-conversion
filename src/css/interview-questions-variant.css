@@ -1,0 +1,78 @@
+/* Interview Questions Single Column Variant Styles */
+
+/* Single column variant - positioned within middle section with specific boundaries */
+.questions-container.questions-single-column {
+  position: absolute !important;
+  /* Extend vertically with equal spacing from SOFTWARE and HARDWARE headers */
+  top: -25px !important; /* Move up for equal spacing from SOFTWARE [7] */
+  bottom: -25px !important; /* Move down for equal spacing from HARDWARE [8] */
+  /* Horizontal positioning - from left padding to right edge of 5th menu item */
+  left: 30px !important; /* Match the section padding */
+  /* Width to end at 5th column: 5 columns out of 8, plus 4 gaps */
+  width: calc(
+    (100% - 60px - 84px) * 0.625 + 48px
+  ) !important; /* 62.5% of grid + gaps */
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: var(
+    --bg
+  ) !important; /* Solid background to cover middle content */
+  display: block !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+}
+
+.questions-list-single {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.questions-single-column-content {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Large text block for all questions */
+.question-text-block-large {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: var(--text) !important;
+  font-family: "Courier New", Courier, monospace !important;
+  text-align: left !important;
+  padding: 15px !important;
+  margin-bottom: 10px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--bg) !important;
+  border-radius: 4px !important;
+}
+
+/* Question headings */
+.question-heading {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: var(--highlight) !important;
+  margin-bottom: 10px !important;
+  padding: 10px 15px !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Question categories */
+.question-category {
+  font-size: 14px !important;
+  color: var(--dim) !important;
+  margin-bottom: 5px !important;
+  padding: 5px 15px !important;
+}

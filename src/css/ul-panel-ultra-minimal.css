@@ -1,0 +1,153 @@
+/* U/L Modal - EXACT Main Site Styling (Ultra-Minimal) */
+/* ONLY 2 colors, ONLY thin lines, ONLY monospace font */
+
+/* Backdrop */
+.ul-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: none;
+}
+
+.ul-backdrop.ul-panel-visible {
+  display: block;
+}
+
+/* Panel - EXACTLY like product cards */
+.ul-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 90vw;
+  max-height: 80vh;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  z-index: 10000;
+  display: none;
+  font-family: monospace;
+}
+
+.ul-panel.ul-panel-visible {
+  display: block;
+}
+
+/* Header - Simple thin line separator */
+.ul-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--text);
+}
+
+.ul-panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--text);
+}
+
+/* Close button - Ultra minimal */
+.ul-panel-close {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Content area - Simple scrolling */
+.ul-panel-content {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(80vh - 51px); /* 51px is header height */
+  color: var(--text);
+}
+
+/* Form elements - Ultra minimal */
+.ul-panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ul-panel-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--text);
+  background: var(--bg);
+  color: var(--text);
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Footer actions - Simple flex layout */
+.ul-panel-footer {
+  padding: 15px 20px;
+  border-top: 1px solid var(--text);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Action buttons - Ultra minimal */
+.ul-panel-button {
+  background: var(--bg);
+  border: 1px solid var(--text);
+  color: var(--text);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.ul-panel-button:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Upload area - Simple border and text */
+.ul-panel-upload {
+  border: 1px dashed var(--text);
+  padding: 20px;
+  text-align: center;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.ul-panel-upload:hover {
+  border-style: solid;
+}
+
+/* Status messages - Simple text styling */
+.ul-panel-status {
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid var(--text);
+}
+
+/* Progress bar - Ultra minimal */
+.ul-panel-progress {
+  width: 100%;
+  height: 2px;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  margin: 10px 0;
+}
+
+.ul-panel-progress-bar {
+  height: 100%;
+  background: var(--text);
+  width: 0;
+  transition: width 0.3s ease;
+}

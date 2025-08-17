@@ -1,0 +1,51 @@
+/* ===== MAIN CONTENT CONTAINER - Combined title and description ===== */
+
+.main-content-container {
+  /* Preserve all existing functionality while combining components */
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+/* Ensure child elements maintain their original styling */
+.main-content-container .product-heading {
+  /* Keeps original heading styles */
+  margin-bottom: 30px;
+}
+
+.main-content-container .company-description {
+  /* Keeps original company description styles */
+  margin-bottom: 20px;
+}
+
+.main-content-container .product-specific-description {
+  /* Keeps original product-specific description styles */
+  position: relative;
+}
+
+/* Ensure hover effects still work correctly */
+.main-content-container .description-text {
+  transition: opacity 0.3s ease;
+}
+
+/* Maintain responsive behavior */
+@media (max-width: 1200px) {
+  .main-content-container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-container {
+    padding: 0 15px;
+  }
+}
+
+/* For A/B testing border visibility */
+.main-content-container.show-borders {
+  border: 2px solid var(--dim);
+  padding: 20px;
+  border-radius: 4px;
+}
