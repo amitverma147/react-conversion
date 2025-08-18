@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SoftwareItem from './SoftwareItem'
 import ShoppingCart from './ShoppingCart'
 import Pagination from './Pagination'
@@ -11,6 +11,17 @@ const SoftwareSection = ({
   showArrow 
 }) => {
   const [currentPage, setCurrentPage] = useState(1)
+  const [isDesktop, setIsDesktop] = useState(true)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 768)
+    }
+    
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
 
   const productData = [
     ['API Gateway', 'Auth Service', 'Data Pipeline', 'ML Platform', 'CI/CD Tools', 'Monitoring', '', ''],
@@ -53,8 +64,8 @@ const SoftwareSection = ({
           />
         ))}
         
-        {/* Shopping cart positioned absolutely on the right */}
-        <ShoppingCart />
+        {/* Shopping cart positioned absolutely on the right - desktop only */}
+        {isDesktop && <ShoppingCart />}
       </div>
     </section>
   )

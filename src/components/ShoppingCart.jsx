@@ -1,4 +1,4 @@
-const ShoppingCart = () => {
+const ShoppingCart = ({ isMobile = false }) => {
   const items = [
     { name: 'Software product 1', code: 'abcd1', price: 0 },
     { name: 'Software product 2', code: 'abcd2', price: 0 },
@@ -6,7 +6,7 @@ const ShoppingCart = () => {
     { name: 'Hardware product 1', code: 'hijk', price: 0 }
   ]
 
-  const cartStyle = {
+  const cartStyle = isMobile ? {} : {
     position: 'absolute',
     top: '100px',
     right: '0',
@@ -15,7 +15,7 @@ const ShoppingCart = () => {
   }
 
   return (
-    <div className="software-item-wide shopping-cart " style={cartStyle} role="gridcell">
+    <div className={`software-item-wide shopping-cart ${isMobile ? 'mobile-cart' : ''}`} style={cartStyle} role="gridcell">
       <div className="receipt-content">
         <div className="receipt-header">SHOPPING CART</div>
         

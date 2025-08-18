@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import './css/responsive-nav.css'
 import SoftwareSection from './components/SoftwareSection'
 import MiddleSection from './components/MiddleSection'
 import HardwareSection from './components/HardwareSection'
@@ -7,6 +8,7 @@ import SideText from './components/SideText'
 import ThemeToggle from './components/ThemeToggle'
 import ULPanel from './components/ULPanel/ULPanel'
 import ABTestingPanel from './components/ABTestingPanel/ABTestingPanel'
+import ResponsiveNav from './components/ResponsiveNav'
 import { useHoverSystem } from './hooks/useHoverSystem'
 
 function App() {
@@ -59,10 +61,14 @@ function App() {
 
   return (
     <>
+      <ResponsiveNav>
+        <ULPanel />
+        <ABTestingPanel />
+      </ResponsiveNav>
+      
       <SideText />
       <main className="main-content">
         <ThemeToggle currentTheme={currentTheme} onToggle={toggleTheme} />
-        <ULPanel />
         <SoftwareSection 
           onItemMouseEnter={handleItemMouseEnter}
           onItemMouseLeave={handleItemMouseLeave}
@@ -82,7 +88,6 @@ function App() {
           onGridMouseLeave={handleHardwareGridLeave}
           showArrow={showHardwareArrow}
         />
-        <ABTestingPanel />
       </main>
     </>
   )

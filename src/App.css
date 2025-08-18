@@ -5,9 +5,11 @@
     box-sizing: border-box;
 }
 
+
 html {
     font-size: 18px; /* Increased base font size for better readability */
 }
+
 
 /* Typography */
 body {
@@ -209,6 +211,7 @@ body {
 /* Section Headers */
 .section-header {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .section-title {
@@ -216,6 +219,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--dim);
+    text-align: left;
 }
 
 /* Product Grids */
@@ -541,8 +545,8 @@ body {
     align-items: center;
     gap: 20px;
     position: relative;
-    left: calc(-12.5% + 7px);
     justify-content: center;
+    transform: translateX(-200px);
 }
 
 .divider {
@@ -559,13 +563,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    left: calc(-12.5% + 7px);
 }
 
 .company-description {
     font-size: 14px;
     line-height: 1.8;
     color: var(--text);
+    transform: translateX(-400px);
 }
 
 .product-specific-description {
@@ -635,6 +639,7 @@ body {
 
 .software-section .pagination {
     padding: 12px 0px 8px 0px;
+    justify-content: center;
 }
 
 .page-btn {
@@ -679,5 +684,46 @@ body {
     .product-heading {
         font-size: 24px;
         letter-spacing: 4px;
+    }
+    
+    /* Adjust main content padding for mobile nav */
+    .main-content {
+        padding-top: 60px;
+    }
+    
+    /* Theme toggle repositioning for mobile */
+    .theme-toggle {
+        top: 70px;
+        right: 15px;
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+    
+    /* Section adjustments */
+    .software-section,
+    .hardware-section {
+        padding: 15px;
+    }
+    
+    .middle-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .product-heading {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .software-section,
+    .hardware-section,
+    .middle-section {
+        padding: 10px;
     }
 }
